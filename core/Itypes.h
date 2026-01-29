@@ -42,26 +42,4 @@ typedef struct {
   float w, x, y, z;
 } vec4f;
 
-typedef struct {
-  
-  u32 *data;
-  u16 w, h;
-
-} framebuffer;
-
-typedef struct{
-
-  vec2i points[3];
-  argb32_t color;
-
-} triangle;
-
-typedef struct{
-
-  vec2i points[2];
-  argb32_t color;
-
-} rectangle;
-
-
 #endif
