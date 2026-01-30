@@ -1,4 +1,16 @@
 #include "shader.h"
+vec3f shade(float x, float y, double t){
+  
+  vec3f colors;
+  
+  //float val = (rings + 1.0f) * 0.5f;
+
+  colors.x = 1;
+  colors.y = 1;
+  colors.z = 1;
+
+  return colors;
+}
 
 u32 packer(vec3f col){ //mudar para argb32_t
   col.x = clampf(col.x, 0, 1);
@@ -24,8 +36,7 @@ void render(framebuffer * restrict FB, double t){
       float x = invW * (i + 0.5f);
       float y = invH * (j + 0.5f);
 
-      param p;
-      *pixel_ptr = packer(shade(x, y, t, p));
+      *pixel_ptr = packer(shade(x, y, t));
       pixel_ptr++; 
     }
   }
