@@ -7,11 +7,11 @@ EXEC = softrenderer
 # Source files
 SRCS = main.c \
        core/Imath.c \
-       engine/renderer.c \
        gfx/framebuffer.c \
        gfx/raster.c \
        gfx/shader.c \
-       platform/sdl_window.c
+       platform/sdl_window.c \
+       engine/renderer.c
 
 # Object files
 OBJS = $(SRCS:.c=.o)

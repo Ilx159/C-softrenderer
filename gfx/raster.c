@@ -18,7 +18,7 @@ void draw_rectangle(framebuffer *FB ,rectangle *rec){
 
   for(u16 i = rec->points[0].y; i <= rec->points[1].y; i++){
     for(u16 j = rec->points[0].x; j <= rec->points[1].x; j++){
-      fb_set_pixel(FB, j, i, rec->color.data);
+      sfb_set_pixel(FB, j, i, rec->color.data);
     }
   }
 }
@@ -82,9 +82,17 @@ void draw_triangle(framebuffer *FB ,triangle *tri){ //raster_lr *edges add later
 
   for(u16 i = 0; i < x2side_size; i++){
     for (int x = xleft[i]; x <= xright[i]; x++)
-      fb_set_pixel(FB, x, i + tri->points[0].y, tri->color.data);
+      sfb_set_pixel(FB, x, i + tri->points[0].y, tri->color.data);
     }
+
+
+    free(x2side);
+    free(x1side);
+    free(x1side2);
+    free(x1side1);
+
   }
+
 }
 
 void lowLine(framebuffer *FB,u32 x1, u32 y1, u32 x2, u32 y2, u32 color){
@@ -98,7 +106,7 @@ void lowLine(framebuffer *FB,u32 x1, u32 y1, u32 x2, u32 y2, u32 color){
   int De = 2*dy - dx;
   int y = y1;
   for(int i = x1; i != x2; i += (x1 < x2) ? 1 : -1){
-    fb_set_pixel(FB, i, y, color); 
+    sfb_set_pixel(FB, i, y, color);
     if(De > 0){
       y += yi;
       De += 2*(dy-dx);
@@ -118,7 +126,7 @@ void highLine(framebuffer *FB,int x1, int y1, int x2, int y2, u32 color){
   int De = 2*dx - dy;
   int x = x1;
   for(int i = y1; i != y2; i += (y1 < y2) ? 1 : -1){
-    fb_set_pixel(FB, x, i, color);
+    sfb_set_pixel(FB, x, i, color);
     if(De > 0){
       x += xi;
       De += 2*(dx-dy);

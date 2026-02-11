@@ -19,7 +19,7 @@ struct {
 }argb32_t;
 
 typedef struct {
-  u16 x, y;
+  int x, y;
 } vec2i;
 
 typedef struct {
@@ -31,11 +31,11 @@ typedef struct {
 } vec3f;
 
 typedef struct {
-  u16 x, y, z;
+  int x, y, z;
 } vec3i;
 
 typedef struct {
-  u16 w, x, y, z;
+  int w, x, y, z;
 } vec4i;
 
 typedef struct {

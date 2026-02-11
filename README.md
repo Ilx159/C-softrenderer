@@ -5,3 +5,10 @@ Software renderer made using C that don't need an specific graphical API.
 
 - Imath.h: library with LUT cos and sin, to improve performance
 - Itypes.h: types that the ABI uses.
+
+
+
+
+# TODO
+
+- Implement Video-blit

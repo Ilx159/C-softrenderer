@@ -7,31 +7,12 @@
 #include <SDL2/SDL_render.h>
 #include "../core/Itypes.h"
 #include "../gfx/framebuffer.h"
+#include "../engine/renderer.h"
 
-typedef struct{
+void SDLprocess(window *win, void(*to_render)(window *win));
 
-  SDL_Window *window;
-  SDL_Renderer *renderer;
-  SDL_Texture *texture;
-  SDL_Event event;
-  
-  char name[64];
+bool SDLinit(window *win);
 
-  framebuffer *frontbuffer;
-  framebuffer *backbuffer;
-
-  u16 ext_width;
-  u16 ext_height;
-  u16 int_width;
-  u16 int_height;
-
-}window;
-
-void process_events(window *win);
-
-bool init(window *win);
-
-void stop(window *win);
-
+void SDLstop(window *win);
 
 #endif
